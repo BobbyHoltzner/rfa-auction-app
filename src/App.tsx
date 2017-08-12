@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import {Alert} from "react-native";
+import {Alert, StatusBar} from "react-native";
 import {StackNavigator, DrawerNavigator} from "react-navigation";
 import LoadingIndicator from "./components/loading-indicator";
 import Login from "./screens/login";
@@ -8,6 +8,7 @@ import TeamInfo from "./components/team-info";
 import Auction from "./screens/auction";
 const firebase = require("firebase");
 const Rebase = require("re-base");
+import Colors from "./util/styles/colors";
 require("firebase/auth");
 const config = {
     apiKey: "AIzaSyA_xdNNhRUQAPS4sB2kzIriiFSWP6sWO_Q",
@@ -77,6 +78,8 @@ export default class App extends React.Component<Props, State> {
         };
     }
     componentDidMount() {
+        StatusBar.setBackgroundColor(Colors.primary);
+        StatusBar.setBarStyle("light-content");
         app.auth().onAuthStateChanged(this.authListener);
     }
     showError = (message: string) => {
