@@ -1,11 +1,11 @@
 import * as React from "react";
 import {View, StatusBar, TouchableOpacity} from "react-native";
 import PropTypes from "prop-types";
-import {TextButton} from "react-native-material-buttons";
 import Colors from "../../util/styles/colors";
 import GlobalStyles from "../../util/styles/styles";
 import AuctionComponent from "../../components/auction";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import ComIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 
 type Props = {
@@ -29,7 +29,7 @@ export default class Auction extends React.Component<Props, State> {
     };
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: "Auction",
-        headerRight: <TextButton title="LOGOUT" titleColor={Colors.white} onPress={() => navigation.state.params.right()} />,
+        headerRight: <TouchableOpacity onPress={() => navigation.state.params.right()}><ComIcon name="logout-variant" color={Colors.white} size={24}/></TouchableOpacity>,
         headerStyle: GlobalStyles.defaultHeader,
         headerTitleStyle: GlobalStyles.defaultHeaderTitle,
         headerLeft: <TouchableOpacity onPress={() => navigation.navigate("DrawerOpen")}><Icon name="menu" color={Colors.white} size={24}/></TouchableOpacity>
