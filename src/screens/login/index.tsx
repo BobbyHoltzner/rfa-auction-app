@@ -67,6 +67,7 @@ export default class Login extends React.Component<Props, State> {
                     onChangeText={this.onChangeEmail}
                     autoCapitalize="none"
                     tintColor={Colors.primary}
+                    keyboardType="email-address"
                 />
                 <TextField
                     label="Password"
